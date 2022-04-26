@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="MyCarTextView">
+        <attr name="isShown" format="boolean" />
+        <attr name="typeFigure" format="enum">
+            <enum name="rect" value="0" />
+            <enum name="circle" value="1" />
+            <enum name="triangle" value="2" />
+        </attr>
+    </declare-styleable>
+</resources>

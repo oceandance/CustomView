@@ -9,27 +9,11 @@
     android:paddingVertical="24dp"
     tools:context=".MainActivity">
 
+    <com.example.customview.customview.mycartextview.MyCarTextView
+        android:id="@+id/my_car_text_view"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:text="MyCar"
+        app:typeFigure="circle" />
 
-    <com.example.customview.customview.CustomTextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="With jvmoverloads">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-    </com.example.customview.customview.CustomTextInputLayout>
-
-    <com.example.customview.customview.CustomStyledTextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:hint="With three constructor">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-    </com.example.customview.customview.CustomStyledTextInputLayout>
 </androidx.appcompat.widget.LinearLayoutCompat>
