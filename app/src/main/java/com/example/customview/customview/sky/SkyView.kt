@@ -14,6 +14,8 @@ class SkyView @JvmOverloads constructor(
 ) : View(context, attrs) {
 
     private lateinit var skyPaint: Paint
+    private lateinit var moonPaint: Paint
+
     private val skyRect: Rect = Rect()
 
     override fun onAttachedToWindow() {
@@ -25,6 +27,10 @@ class SkyView @JvmOverloads constructor(
             strokeCap = Paint.Cap.ROUND
         }
 
+        moonPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+            color = Color.YELLOW
+            style = Paint.Style.FILL
+        }
     }
 
     override fun onLayout(changed: Boolean, left: Int, top: Int, right: Int, bottom: Int) {
@@ -36,6 +42,7 @@ class SkyView @JvmOverloads constructor(
         super.onDraw(canvas)
 
         canvas.drawRect(skyRect, skyPaint)
+        canvas.drawCircle(800f, 250f, 50f, moonPaint)
     }
 
 }
