@@ -10,6 +10,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CustomView">
         <activity
+            android:theme="@style/Theme.SkyView"
+            android:name=".customview.sky.SkyActivity"
+            android:exported="false" />
+
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
