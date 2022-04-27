@@ -14,6 +14,7 @@ class SkyView @JvmOverloads constructor(
 ) : View(context, attrs) {
 
     private lateinit var skyPaint: Paint
+    private val skyRect: Rect = Rect()
 
     override fun onAttachedToWindow() {
         super.onAttachedToWindow()
@@ -26,13 +27,16 @@ class SkyView @JvmOverloads constructor(
 
     }
 
+    override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec)
+        val width = MeasureSpec.getSize(widthMeasureSpec)
+        val height = MeasureSpec.getSize(heightMeasureSpec)
+        skyRect.set(0, 0, width, height/2)
+    }
+
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
 
-        val width = this.width
-        val height = this.height
-
-        val skyRect = Rect(0, 0, width, height)
         canvas.drawRect(skyRect, skyPaint)
     }
 
