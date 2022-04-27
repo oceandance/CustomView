@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="MyCarTextView">
+        <attr name="color" format="color" />
         <attr name="isShown" format="boolean" />
         <attr name="typeFigure" format="enum">
             <enum name="rect" value="0" />

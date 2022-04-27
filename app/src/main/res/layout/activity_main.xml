@@ -13,7 +13,11 @@
         android:id="@+id/my_car_text_view"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:text="MyCar"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="MyCar Kz"
+        android:textColor="@color/white"
+        app:color="@color/red"
         app:typeFigure="circle" />
 
 </androidx.appcompat.widget.LinearLayoutCompat>
