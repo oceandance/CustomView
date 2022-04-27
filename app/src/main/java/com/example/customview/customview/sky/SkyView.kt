@@ -27,11 +27,9 @@ class SkyView @JvmOverloads constructor(
 
     }
 
-    override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
-        super.onMeasure(widthMeasureSpec, heightMeasureSpec)
-        val width = MeasureSpec.getSize(widthMeasureSpec)
-        val height = MeasureSpec.getSize(heightMeasureSpec)
-        skyRect.set(0, 0, width, height/2)
+    override fun onLayout(changed: Boolean, left: Int, top: Int, right: Int, bottom: Int) {
+        super.onLayout(changed, left, top, right, bottom)
+        skyRect.set(left, top, right, bottom/2)
     }
 
     override fun onDraw(canvas: Canvas) {
