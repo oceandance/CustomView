@@ -8,6 +8,7 @@ import android.graphics.Path
 import android.graphics.Point
 import android.graphics.Rect
 import android.util.AttributeSet
+import android.view.MotionEvent
 import android.view.View
 import java.util.*
 
@@ -23,6 +24,9 @@ class SkyView @JvmOverloads constructor(
     private val skyRect: Rect = Rect()
 
     private val starsPath: Path = Path()
+
+    private var pencilPaint: Paint
+    private val pencilPath: Path = Path()
 
     init {
         skyPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
@@ -41,6 +45,11 @@ class SkyView @JvmOverloads constructor(
             color = Color.YELLOW
             style = Paint.Style.FILL
         }
+        pencilPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+            color = Color.GREEN
+            strokeWidth = 4f
+            style = Paint.Style.STROKE
+        }
     }
 
     override fun onLayout(changed: Boolean, left: Int, top: Int, right: Int, bottom: Int) {
@@ -55,6 +64,7 @@ class SkyView @JvmOverloads constructor(
         canvas.drawRect(skyRect, skyPaint)
         canvas.drawCircle(800f, 250f, 50f, moonPaint)
         canvas.drawPath(starsPath, starPaint)
+        canvas.drawPath(pencilPath, pencilPaint)
     }
 
     private fun drawStarsPath() {
@@ -84,4 +94,22 @@ class SkyView @JvmOverloads constructor(
     private fun getRandomNumber(min: Int, max: Int): Int {
         return Random().nextInt(max - min + 1) + min
     }
+
+    override fun onTouchEvent(event: MotionEvent): Boolean {
+        val pointX = event.x
+        val pointY = event.y
+        return when (event.action) {
+            MotionEvent.ACTION_DOWN -> {
+                pencilPath.moveTo(pointX, pointY)
+                true
+            }
+            MotionEvent.ACTION_MOVE -> {
+                pencilPath.lineTo(pointX, pointY)
+                invalidate()
+                true
+            }
+            else -> false
+        }
+    }
+
 }
